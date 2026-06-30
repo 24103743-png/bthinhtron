@@ -1,0 +1,100 @@
+/* Reset cấu hình cơ bản */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f5f5;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* --- Hệ thống Lưới (Grid Layout) --- */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mặc định chia làm 2 cột bằng nhau */
+    gap: 20px; /* Khoảng cách giữa các ô */
+    margin-top: 30px;
+    padding: 10px;
+}
+
+/* Cấu trúc chung của mỗi ô màu */
+.card {
+    position: relative;
+    border: 5px solid #000;
+    overflow: hidden;
+    background-color: #fff;
+    width: 100%;
+    /* Giữ tỷ lệ hình vuông cho các ô màu cơ bản */
+    aspect-ratio: 1 / 1; 
+}
+
+/* Định dạng hình tròn cho 8 hình đầu */
+.circle {
+    border-radius: 50%;
+}
+
+/* Định dạng hình bầu dục cho hình cuối cùng */
+.oval {
+    border-radius: 50% / 50%; /* Tạo dáng oval rộng */
+    grid-column: span 2; /* Ép hình này chiếm hết chiều ngang của cả 2 cột */
+    aspect-ratio: 2.2 / 1; /* Tỷ lệ thuôn dài nằm ngang */
+}
+
+/* Phần nhãn chữ màu đen phía dưới mỗi hình */
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: #f7d070; /* Chữ màu vàng cam giống trong ảnh */
+    padding: 8px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+/* --- Bộ màu sắc chi tiết --- */
+.red { background-color: #e60000; }
+.orange { background-color: #ff8000; }
+.yellow { background-color: #ffff00; }
+.green { background-color: #00b300; }
+.blue { background-color: #3399ff; }
+.indigo { background-color: #2e08ba; }
+.purple { background-color: #731a73; }
+.pink { background-color: #ff00cc; }
+.white { background-color: #ffffff; }
+
+/* --- Responsive: Khi thu nhỏ màn hình (ví dụ: Điện thoại) --- */
+@media (max-width: 600px) {
+    .grid-layout {
+        grid-template-columns: 1fr; /* Chuyển về 1 cột dọc duy nhất */
+    }
+    
+    .oval {
+        grid-column: span 1; /* Trên màn hình nhỏ, nó sẽ tự động thu về 1 cột */
+        aspect-ratio: 2 / 1;
+    }
+}
